@@ -16,3 +16,7 @@ run project cxf_client with
 	mvn clean package exec:java
 
 to test client side of web service
+
+wsdl location with jetty running is
+
+	http://localhost:8080/cxf_holiday_service/hrService?wsdl
