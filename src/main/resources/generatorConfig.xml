@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <properties url="file:///Users/geoffreyritchey/Documents/workspace/AttendanceIpad/build.properties"/>
+  <classPathEntry location="/Users/geoffreyritchey/Applications/x86/jdbc/sqljdbc.jar" />
+
+  <context id="DB2Tables" targetRuntime="MyBatis3" >
+  	<plugin type="com.ritchey.forms.server.SerializablePlugin"></plugin>
+  	<plugin type="com.ritchey.forms.server.ToStringPlugin"></plugin>
+  	<plugin type="com.ritchey.forms.server.ReflectionPlugin"></plugin>
+      <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+              connectionURL="jdbc:sqlserver://${database.mssql.qualified.progressserver};instanceName=lcuapps2;databaseName=Chapel"
+                      userId="${database.user}" password="${database.password}">
+      </jdbcConnection>
+
+    <javaModelGenerator targetPackage="com.ritchey.chapel.domain" targetProject="MBGTestProject/src">
+          <property name="enableSubPackages" value="false" />
+                <property name="trimStrings" value="true" />
+                    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="com.ritchey.chapel.domain"  targetProject="MBGTestProject/src" >
+          <property name="enableSubPackages" value="false" />
+          
+              </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.ritchey.chapel.domain"  targetProject="MBGTestProject/src">
+          <property name="enableSubPackages" value="false" />
+              </javaClientGenerator>
+
+    <table tableName="Absences" domainObjectName="Absences" >
+    	<generatedKey sqlStatement="JDBC" column="RecordNumber" identity="true"></generatedKey>
+    </table>
+    	
+  </context>
+  </generatorConfiguration>
+

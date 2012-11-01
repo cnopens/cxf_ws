@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+	<New id="pc" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg>jdbc/powerCampus</Arg>
+		<Arg>
+		 <New class="org.apache.commons.dbcp.BasicDataSource">
+			 <Set name="driverClassName">com.microsoft.sqlserver.jdbc.SQLServerDriver</Set>
+			 <Set name="url">jdbc:sqlserver://${database.mssql.server};ServerName=${database.mssql.qualified.server}\powercampus;databaseName=Area51</Set>
+			 <Set name="username">sa</Set>
+			 <Set name="password">${database.password}</Set>
+		    </New>
+		</Arg>
+	</New>
+	<New id="chapel" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg>jdbc/chapel</Arg>
+		<Arg>
+		 <New class="org.apache.commons.dbcp.BasicDataSource">
+			 <Set name="driverClassName">com.microsoft.sqlserver.jdbc.SQLServerDriver</Set>
+			 <Set name="url">${chapel.database.url}</Set>
+			 <Set name="username">sa</Set>
+			 <Set name="password">${database.password}</Set>
+		    </New>
+		</Arg>
+	</New>
+</Configure>

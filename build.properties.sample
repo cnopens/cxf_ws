@@ -1,0 +1,9 @@
+database.password=XxXx
+progress.database.password=YxYx
+progress.database.username=Avatar
+database.mssql.qualified.server=myserver.ritchey.com
+database.mssql.qualified.chapelserver=otherserver.ritchey.com
+database.mssql.server=myserver
+database.mssql.progressserver=otherserver
+
+chapel.database.url=jdbc\:sqlserver\://${database.mssql.server};ServerName\=${database.mssql.qualified.chapelserver}\\lcuapps2;databaseName\=Chapel
